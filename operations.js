@@ -2,4 +2,8 @@ function addTwoNumbers(x, y) {
   return x + y;
 }
 
-module.exports = { addTwoNumbers }
+function subTwoNumbers(x, y) {
+  return x - y;
+}
+
+module.exports = { addTwoNumbers, subTwoNumbers }
