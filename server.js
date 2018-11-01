@@ -4,6 +4,7 @@ const app = express()
 app.use(bodyParser.json());
 const operations = require('./operations')
 const addTwoNumbers = operations.addTwoNumbers;
+const subTwoNumbers = operations.subTwoNumbers;
 
 app.get('/', function(req, res){
 	if (req.query.left && req.query.right && req.query.op) {
@@ -24,7 +25,7 @@ app.get('/', function(req, res){
 		if (operation == 'add') {
 			result = addTwoNumbers(leftInt, rightInt)
 		} else if (operation == 'sub') {
-			result = "Not implemented yet";
+			result = subTwoNumbers(leftInt, rightInt)
 		} else {
 			error = "Pass add or sub as op argument";
 		}
