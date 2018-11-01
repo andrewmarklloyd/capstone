@@ -22,7 +22,7 @@ function testAddTwoNumbers() {
 function testSubtwoNumbers() {
   var x = 5;
   var y = 1;
-  var diff1 = x * y;
+  var diff1 = x - y;
   var diff2 = subTwoNumbers(x, y);
 
   console.log('subTwoNumbers() should return the difference of its two parameters.');

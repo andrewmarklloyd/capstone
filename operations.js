@@ -3,7 +3,7 @@ function addTwoNumbers(x, y) {
 }
 
 function subTwoNumbers(x, y) {
-  return x + y;
+  return x - y;
 }
 
 module.exports = { addTwoNumbers, subTwoNumbers }
