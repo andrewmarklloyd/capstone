@@ -5,23 +5,35 @@ app.use(bodyParser.json());
 const operations = require('./operations')
 const addTwoNumbers = operations.addTwoNumbers;
 
-
 app.get('/', function(req, res){
-	if (req.query.left && req.query.right) {
+	if (req.query.left && req.query.right && req.query.op) {
+
+		const operation = req.query.op;
+		if (!operation) {
+			return res.json({sum: null, error: 'Pass add or sub as op argument'})
+		}
 
 		const leftInt = parseInt(req.query.left)
 		const rightInt = parseInt(req.query.right)
 		if (!Number.isInteger(leftInt) || !Number.isInteger(rightInt)) {
-			return res.json({sum: null, error: 'Pass left and right as integers'})
+			return res.json({sum: null, error: 'Pass left and right integers as argument'})
 		}
-		
-		const sum = addTwoNumbers(leftInt, rightInt)
+
+		var result = null;
+		var error = null;
+		if (operation == 'add') {
+			result = addTwoNumbers(leftInt, rightInt)
+		} else if (operation == 'sub') {
+			result = "Not implemented yet";
+		} else {
+			error = "Pass add or sub as op argument";
+		}
 		res.json({
-			sum: sum,
-			error: null
+			result: result,
+			error: error
 		})
 	} else {
-		res.json({sum: null, error: 'Pass left and right as integers'})
+		res.json({sum: null, error: 'Pass in arguments!'})
 	}
 })
 
