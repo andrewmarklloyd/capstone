@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 		if (operation == 'add') {
 			result = addTwoNumbers(leftInt, rightInt)
 		} else if (operation == 'sub') {
-			result = "Not implemented yet";
+			result = subTwoNumbers(leftInt, rightInt)
 		} else {
 			error = "Pass add or sub as op argument";
 		}
